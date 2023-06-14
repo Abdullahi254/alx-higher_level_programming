@@ -12,5 +12,3 @@ def best_score(a_dictionary):
             i+=1
         return temp
     return None
-
-
