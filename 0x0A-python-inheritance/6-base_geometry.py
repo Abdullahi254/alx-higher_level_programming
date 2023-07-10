@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-# 5-base_geometry.py
+# 6-base_geometry.py
 
-"""Defines an empty class BaseGeometry."""
+"""Defines a base geometry class BaseGeometry."""
 
 
 class BaseGeometry:
     """Represent base geometry."""
+
     def area(self):
-        """ not implemented """
-        raise("area() is not implemented")
+        """Not implemented."""
+        raise Exception("area() is not implemented")
