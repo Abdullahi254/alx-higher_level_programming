@@ -5,4 +5,4 @@
 
 def lookup(obj):
     """iterates through the attributes and return a list of attributes."""
-    return (dir(obj))
+    return sorted((dir(obj)))
