@@ -4,20 +4,22 @@ import modules and sys function
 """
 from sys import argv
 import json
+ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file =\
+    __import__('6-load_from_json_file').load_from_json_file
 
 
-if __name__ == "__main__":
-    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-    load_from_json_file =\
-        __import__('6-load_from_json_file').load_from_json_file
+def add_arguments_to_list(args: List[str]) -> None:
+    """adds argument to list"""
+    filename = 'add_item.json'
+    my_list = []
 
-    try:
-        j_list = load_from_json_file('add_item.json')
-    except:
-        j_list = []
+    if exists(filename):
+        my_list = load_from_json_file(filename)
 
-    for i in range(1, len(argv)):
-        j_list.append(argv[i])
+    my_list.extend(args)
+    save_to_json_file(my_list, filename)
 
-    save_to_json_file(j_list, 'add_item.json')
-
+if __name__ == '__main__':
+    arguments = sys.argv[1:]
+    add_arguments_to_list(arguments)
