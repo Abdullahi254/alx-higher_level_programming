@@ -1,7 +1,7 @@
 #!/usr/bin/node
-import { argv } from 'node:process';
 
-let x = Number(argv[0]);
+
+let x = Number(process.argv[2]);
 
 if (typeof (x) == "number") {
     while (x > 0) {

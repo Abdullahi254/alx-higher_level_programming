@@ -1,4 +1,7 @@
 #!/usr/bin/node
-import { argv } from 'node:process';
-
-console.log(argv[0]);
+const arg = process.argv[2];
+if (arg === undefined) {
+  console.log('No argument');
+} else {
+  console.log(arg);
+}
