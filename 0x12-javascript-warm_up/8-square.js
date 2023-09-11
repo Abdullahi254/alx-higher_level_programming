@@ -1,16 +1,14 @@
 #!/usr/bin/node
+let num = process.argv[2];
 
-let x = Number(process.argv[2]);
-let sum = "";
-
-if (typeof (x) == "number") {
-    for (let i = 0; i < x; i++) {
-        sum = "";
-        for (let j = 0; j < x; j++) {
-            sum = sum + "X"
-        }
-        console.log(sum)
-    }
+if (isNaN(num)) {
+  console.log('Missing size');
 } else {
-    console.log("Missing size");
+  for (let i = 0; i < num; i++) {
+    let msg = '';
+    for (let j = 0; j < num; j++) {
+      msg = msg + 'X';
+    }
+    console.log(msg);
+  }
 }
