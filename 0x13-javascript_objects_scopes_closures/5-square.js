@@ -6,3 +6,4 @@ class Square extends Rectangle{
 		super(w, h);
 	}
 }
+module.exports = Square;
