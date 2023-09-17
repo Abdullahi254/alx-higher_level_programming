@@ -5,7 +5,6 @@ model_state.py - defines a class `State` and an instance
 """
 
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import relationship
 from model_base import Base
 
 
