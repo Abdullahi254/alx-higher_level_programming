@@ -17,7 +17,7 @@ if __name__ == "__main__":
     search = av[4]
 
     host = "localhost"
-    port = 5432
+    port = 3306
 
     conn = MySQLdb.connect(host=host, port=port,
                            user=user, passwd=passwd, db=db)
