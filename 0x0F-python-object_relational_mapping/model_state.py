@@ -6,7 +6,8 @@ model_state.py - defines a class `State` and an instance
 
 from sqlalchemy import Column, Integer, String
 from model_base import Base
-
+from sqlalchemy.orm import relationship
+from model_city import City
 
 class State(Base):
     """State class inherits from Base"""
@@ -14,4 +15,6 @@ class State(Base):
     __tablename__ = 'states'
     id = Column('id', Integer, primary_key=True, nullable=False)
     name = Column('name', String(128), nullable=False)
-
+    
+    # `backpopulate` points to the `state` attrubite on the `City` class
+    cities = relationship('City', order_by=City.id, back_populates='state')

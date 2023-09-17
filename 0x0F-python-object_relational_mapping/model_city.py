@@ -5,7 +5,7 @@
 
 from sqlalchemy import Column, ForeignKey, Integer, String
 from model_base import Base
-
+from sqlalchemy.orm import relationship
 
 class City(Base):
     """City class inherits from Base"""
@@ -14,3 +14,6 @@ class City(Base):
     id = Column('id', Integer, primary_key=True, nullable=False)
     name = Column('name', String(128), nullable=False)
     state_id = Column('state_id', Integer, ForeignKey('states.id'))
+    
+    # `backpopulate` points to the `cities` attrubite on the `State` class
+    state = relationship('State', back_populates='cities')
