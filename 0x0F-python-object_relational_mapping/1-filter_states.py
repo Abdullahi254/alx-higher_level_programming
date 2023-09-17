@@ -22,8 +22,11 @@ if __name__ == "__main__":
                            user=user, passwd=passwd, db=db)
 
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states WHERE name REGEXP '^[N].*$' ORDER BY id ASC")
-
+    cur.execute(
+        """SELECT * FROM states
+        WHERE name LIKE _utf8mb4 'N%'
+        COLLATE utf8mb4_0900_as_cs
+        ORDER BY id ASC""")
     rows = cur.fetchall()
 
     for row in rows:
