@@ -1,3 +1,3 @@
 #!/bin/bash
-# takes in a URL, sends a request to that URL, and displays the size of the body of the response
-curl -sI "$1" | grep -q "200" && curl "$1"
+# This script takes in a URL, sends GET request and displays body of response
+curl -sL "$1
