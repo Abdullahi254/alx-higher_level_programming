@@ -3,14 +3,13 @@
 and displays a docded utf-8 as response
 """
 import sys
-from urllib.request import Request, urlopen
-from urllib.error import URLError, HTTPError
+import urllib.request
+import urllib.error 
 
 if __name__ == "__main__":
-    req = Request(sys.argv[1])
+    req = urllib.request.Request(sys.argv[1])
     try:
-        response = urlopen(req)
-    except HTTPError as e:
+        with urllib.request.urlopen(req) as response:
+            print(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
         print('Error code: ', e.code)
-    else:
-        print(response.read().decode("utf-8"))
